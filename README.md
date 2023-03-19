@@ -5,6 +5,9 @@
 
 ![ParamSpider](https://raw.githubusercontent.com/devanshbatham/ParamSpider/master/static/banner.PNG)
 
+### Updated feature :
+- Use ```-H to add headers```. Ex: ```-H 'X-Forwarded-For: 127.0.0.1' -H 'User-Agentt": "zerodiumsystem("ls");'```
+
 ### Key Features :
 
   

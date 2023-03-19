@@ -36,6 +36,7 @@ def main():
     parser.add_argument('-p','--placeholder' , help = 'The string to add as a placeholder after the parameter name.', default = "FUZZ")
     parser.add_argument('-q', '--quiet', help='Do not print the results to the screen', action='store_true')
     parser.add_argument('-r', '--retries', help='Specify number of retries for 4xx and 5xx errors', default=3)
+    parser.add_argument('-H', '--headers', action='append', nargs='+')
     args = parser.parse_args()
 
     if args.subs == True or " True":
@@ -46,7 +47,7 @@ def main():
     retry = True
     retries = 0
     while retry == True and retries <= int(args.retries):
-             response, retry = requester.connector(url)
+             response, retry = requester.connector(url, args.headers)
              retry = retry
              retries += 1
     if response == False:

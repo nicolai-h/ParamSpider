@@ -2,7 +2,7 @@ import requests
 import random
 
 
-def connector(url):
+def connector(url, arg_headers):
     result = False
     user_agent_list = [
    #Chrome
@@ -33,7 +33,12 @@ def connector(url):
 ]
     user_agent = random.choice(user_agent_list)
     headers = {'User-Agent': user_agent}
- 
+    
+    if arg_headers:
+        for h in arg_headers:
+                key_value = h[0].split(":")
+                headers[key_value[0]] = key_value[1]
+
     try:
         # TODO control request headers in here
             response = requests.get(url,headers=headers ,timeout=30)
